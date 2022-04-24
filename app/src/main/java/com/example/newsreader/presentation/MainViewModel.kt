@@ -24,7 +24,7 @@ class MainViewModel(
     private fun getNews() {
         viewModelScope.launch {
             try {
-                newsRepository.getNews()
+                _news.value = newsRepository.getNews()
             } catch (e: Exception) {
                 Log.w("MainViewModel", "getNews: $e")
             }
